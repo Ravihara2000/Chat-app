@@ -8,6 +8,15 @@ public class ChatOutMessage {
     private String groupName;
     private Date timestamp;
 
+    public ChatOutMessage(String content, String groupName, Date timestamp) {
+        this.content = content;
+        this.groupName = groupName;
+        this.timestamp = timestamp;
+    }
+
+    public ChatOutMessage(String message) {
+    }
+
     public String getContent() {
         return content;
     }
