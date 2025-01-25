@@ -1,5 +1,5 @@
 package com.chatApp.Chat.App.model;
-
+//come from browser
 import java.util.Date;
 
 public class ChatInMessage {
