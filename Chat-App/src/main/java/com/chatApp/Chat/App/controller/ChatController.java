@@ -15,4 +15,10 @@ public class ChatController {
 
         return new ChatOutMessage(message.getMessage());
     }
+
+    @MessageMapping("/guestupdate")
+    @SendTo("/topic/guestupdates")
+    public ChatOutMessage handleUserIsTyping(ChatInMessage message)throws Exception{
+        return new ChatOutMessage("Someone is typing...");
+    }
 }
