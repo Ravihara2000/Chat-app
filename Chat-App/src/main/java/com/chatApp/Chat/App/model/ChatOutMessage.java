@@ -15,6 +15,7 @@ public class ChatOutMessage {
     }
 
     public ChatOutMessage(String message) {
+        this.content = message;
     }
 
     public String getContent() {

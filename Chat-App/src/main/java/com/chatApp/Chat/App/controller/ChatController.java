@@ -6,6 +6,7 @@ import org.springframework.messaging.handler.annotation.MessageExceptionHandler;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.util.HtmlUtils;
 
 @Controller
 public class ChatController {
@@ -13,8 +14,9 @@ public class ChatController {
     @SendTo("/topic/guestchats") //mapped subscription queue
     public ChatOutMessage handleMessaging(ChatInMessage message) throws Exception{
         Thread.sleep(1000);
-
-        return new ChatOutMessage(message.getMessage());
+        message=null;
+        message.getMessage();
+        return new ChatOutMessage(HtmlUtils.htmlEscape(message.getMessage()));
     }
 
     @MessageMapping("/guestupdate")
@@ -23,6 +25,11 @@ public class ChatController {
         return new ChatOutMessage("Someone is typing...");
     }
 
+    @MessageMapping("/guestjoin")
+    @SendTo("/topic/guestnames")
+    public ChatOutMessage handleMemberJoins(ChatInMessage message) throws Exception {
+        return new ChatOutMessage(message.getMessage());
+    }
 
     @MessageExceptionHandler
     @SendTo("/topic/errors")

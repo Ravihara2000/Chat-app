@@ -1,5 +1,6 @@
 package com.chatApp.Chat.App.model;
 //come from browser
+
 import java.util.Date;
 
 public class ChatInMessage {
@@ -7,6 +8,9 @@ public class ChatInMessage {
     private String senderName;
     private String message;
     private Date timestamp;
+
+    public ChatInMessage(String spring) {
+    }
 
     public String getSenderId() {
         return senderId;

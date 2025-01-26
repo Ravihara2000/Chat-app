@@ -13,7 +13,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     //Register STOMP Endpoint.This method registers the WebSocket endpoint that clients will connect to.
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/landon-chat-app").withSockJS();// Enables fallback options for browsers that don’t support WebSocket (using SockJS).
+        registry.addEndpoint("/landon-stomp-chat").withSockJS();// Enables fallback options for browsers that don’t support WebSocket (using SockJS).
 
     }
 //Configure Message Broker
